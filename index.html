@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Tic Tac Toe </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	.text-center {
+		text-align: center;
+	}
+	.panel {
+		border: 1px solid #2c3539;
+		border-radius: 0;
+		transition: box-shadow 0.5s;
+	}
+	.panel:hover {
+		box-shadow: 5px 0px 40px rgba(0,0,0,.2);
+	}
+	.panel-header {
+		color: #fff !important;
+		background-color: #2c3539 !important;
+		padding: 25px;
+		border-bottom: 1px solid transparent;
+	}
+	.panel-body {
+		font-size: 25px;
+	}
+	.container-fluid {
+		padding: 25px 25px 25px 25px;
+	}
+	.jumbotron {
+		background-color: #2c3539;
+		color: #ffffff;
+		padding: 100px 25px;
+	}
+	.game-cell {
+		width:150px;
+		height:150px;
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	img {
+		display: block;
+		margin: auto;
+		width: 50px;
+		height: 50px;
+	}
+	.winning-grid {
+		border: 2px solid orange;
+	}
+	</style>
+	<script src="main.js"></script>
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+			<h1> Online  Tic Tac Toe </h1>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<button id="game-button" type="button" class="btn btn-success btn-block">New Game</button>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#playerChange">New Players</button>
+				</div>
+			</div>
+			<div class="text-center"><h3> <span id="current"></span>'s Turn </h3></div> 
+			<br>
+			<div class="row" id="game-board">
+				<div class="col-md-7 text-center" style="padding-left:120px">
+				<!-- Tic Tac Toe Board -->
+					<div class="row">
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;border-right: 2px solid black;" index="0">
+						</div>
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;border-right: 2px solid black;" index="1">
+						</div>
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;" index="2">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;border-right: 2px solid black;" index="3">
+						</div>
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;border-right: 2px solid black;" index="4">
+						</div>
+						<div class="col-md-4 game-cell" style="border-bottom: 2px solid black;" index="5">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 game-cell" style="border-right: 2px solid black;" index="6">
+						</div>
+						<div class="col-md-4 game-cell" style="border-right: 2px solid black;" index="7">
+						</div>
+						<div class="col-md-4 game-cell" index="8">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+				<!-- Score Card Panel-->
+					<div class="panel panel-default">
+						<div class="panel-header text-center"><h2>Score Card</h2></div>
+						<div class="panel-body">
+						<span id="player1Name"></span>-<span id="player1count"></span><br>
+						<span id="player2Name"></span>-<span id="player2count"></span>
+						</div>
+						<div class="panel-footer"><h4>Current Leader <span id="leader"></span></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		  <!-- Modal -->
+  		<div class="modal fade" id="playerChange" role="dialog">
+    		<div class="modal-dialog modal-lg">
+      			<div class="modal-content">
+        			<div class="modal-header">
+          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+          					<h4 class="modal-title">Modal Header</h4>
+        			</div>
+        			<div class="modal-body">
+          				<!-- New Player form -->
+          				<form class="form-horizontal" id="form1">
+  							<div class="form-group">
+    							<label class="control-label col-sm-2" for="player1Name">Player-1 Name:</label>
+    								<div class="col-sm-10">
+      									<input type="text" class="form-control" id="player1NameNew" placeholder="Enter Player-1 name" required>
+    								</div>
+  							</div>
+  							<div class="form-group">
+    							<label class="control-label col-sm-2" for="player2Name">Player-2 Name:</label>
+    								<div class="col-sm-10"> 
+      									<input type="text" class="form-control" id="player2NameNew" placeholder="Enter Player-2 name" required>
+    								</div>
+  							</div>
+  							<div class="form-group"> 
+    							<div class="col-sm-offset-2 col-sm-10">
+      								<button type="submit" id="submitName" class="btn btn-default"> Submit</button>
+    							</div>
+  							</div>
+						</form>
+        			</div>
+        			<div class="modal-footer">
+          				<button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal">Close</button>
+        			</div>	
+      			</div>
+    		</div>
+  		</div>
+	</body>
+</html>
